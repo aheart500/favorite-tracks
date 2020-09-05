@@ -18,17 +18,16 @@ fs.exists(songsPath, (exists) => {
 app.post("/ping", (req, res) => {
   const id = req.body.id;
   const videoName = id + ".mp3";
-  console.log("here 1");
+
   fs.readdir(songsPath, async (_, files) => {
     if (files.includes(videoName)) {
-      console.log("here 2");
       res.send(videoName);
     } else {
       const videoLink = "https://www.youtube.com/watch?v=" + id;
-      console.log("here 3");
+
       const audioInfo = await ytdl.getInfo(videoLink);
       let downloadComplete = false;
-      console.log("here 4");
+
       ytdl
         .downloadFromInfo(audioInfo, {
           filter: "audioonly",
@@ -44,7 +43,6 @@ app.post("/ping", (req, res) => {
         .on("close", () => {
           if (downloadComplete) {
             res.send(videoName);
-            console.log("here 5");
           } else {
             fs.exists(path.join(songsPath, videoName), (exists) => {
               if (exists) fs.unlink(path.join(songsPath, videoName), () => {});

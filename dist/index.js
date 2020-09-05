@@ -29,18 +29,14 @@ fs_1.default.exists(songsPath, (exists) => {
 app.post("/ping", (req, res) => {
     const id = req.body.id;
     const videoName = id + ".mp3";
-    console.log("here 1");
     fs_1.default.readdir(songsPath, (_, files) => __awaiter(void 0, void 0, void 0, function* () {
         if (files.includes(videoName)) {
-            console.log("here 2");
             res.send(videoName);
         }
         else {
             const videoLink = "https://www.youtube.com/watch?v=" + id;
-            console.log("here 3");
             const audioInfo = yield ytdl_core_1.default.getInfo(videoLink);
             let downloadComplete = false;
-            console.log("here 4");
             ytdl_core_1.default
                 .downloadFromInfo(audioInfo, {
                 filter: "audioonly",
@@ -55,7 +51,6 @@ app.post("/ping", (req, res) => {
                 .on("close", () => {
                 if (downloadComplete) {
                     res.send(videoName);
-                    console.log("here 5");
                 }
                 else {
                     fs_1.default.exists(path_1.default.join(songsPath, videoName), (exists) => {
