@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
+
+    <title>Audio Player</title>
+  </head>
+  <body>
+    <main id="main"></main>
+    <footer class="footer">
+      <button onclick="play()" id="playButton" disabled="true"></button>
+      <div class="track-container">
+        <input
+          type="range"
+          id="track"
+          min="0"
+          value="0"
+          step="0.01"
+          oninput="changeTrackTime(event)"
+          class="range timing-range"
+        />
+        <div class="timers">
+          <span id="elapsed">00:00</span>
+          <span id="duration">00:00</span>
+        </div>
+        <!--   <span id="remaining"></span> -->
+      </div>
+
+      <div class="right-controls">
+        <div class="volume-container" id="volume-button">
+          <div class="volume-box" id="volume-hover-box">
+            <input
+              type="range"
+              min="0"
+              max="3"
+              value="1"
+              step="0.01"
+              oninput="changeVolume(event)"
+              class="range volume-range"
+              id="volumeRange"
+            />
+          </div>
+        </div>
+
+        <div class="loadingContainer">
+          <div id="loading" class="loader"></div>
+          <a id="download-link">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fas"
+              data-icon="arrow-circle-down"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-143.6-28.9L288 302.6V120c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v182.6l-72.4-75.5c-9.3-9.7-24.8-9.9-34.3-.4l-10.9 11c-9.4 9.4-9.4 24.6 0 33.9L239 404.3c9.4 9.4 24.6 9.4 33.9 0l132.7-132.7c9.4-9.4 9.4-24.6 0-33.9l-10.9-11c-9.5-9.5-25-9.3-34.3.4z"
+                class=""
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="data.js"></script>
+
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>
+  </body>
+</html>

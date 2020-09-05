@@ -1,0 +1,136 @@
+.footer {
+  background-color: #f2f2f2;
+  border-top: 1px solid #cecece;
+
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-container {
+  background: url(./icons/volume-low.svg) no-repeat center;
+  width: 30px;
+  height: 2rem;
+
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.show-box {
+  height: 6rem !important;
+  visibility: visible !important;
+}
+.show-range {
+  opacity: 1 !important;
+}
+.volume-box {
+  position: absolute;
+  bottom: 35px;
+  display: flex;
+  padding: 5px;
+  width: 30px;
+  height: 0;
+  justify-content: center;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 1px 1px 7px 0px #464646;
+  visibility: hidden;
+  transition: all 0.2s ease-out;
+}
+
+.volume-range {
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  height: 100%;
+  width: 2px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  opacity: 0;
+}
+.track-container {
+  width: 50%;
+
+  margin: 0 1rem;
+}
+.timers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  font-family: monospace;
+}
+.timers #elapsed {
+  color: #4475ba;
+}
+.timing-range {
+  width: 100%;
+  height: 2px;
+}
+
+#playButton {
+  background: url(./icons/start.svg) no-repeat center;
+  width: 30px;
+  height: 2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+/* #loading{
+
+} */
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loadingContainer {
+  height: 40px;
+  width: 40px;
+}
+.loader {
+  display: none;
+  margin: 0 5px;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  border-top: 2px dotted black;
+  animation: rotate 0.5s infinite linear;
+}
+#download-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+#download-link svg {
+  height: 20px;
+  width: 20px;
+}
+.right-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 500px) {
+  .footer {
+    justify-content: flex-start;
+    padding: 0 5px;
+  }
+  .right-controls {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+  .track-container {
+    width: 70%;
+
+    margin: 0 1rem;
+  }
+}
