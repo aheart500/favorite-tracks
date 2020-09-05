@@ -63,7 +63,7 @@ const changeSongSrc = (url) => {
     if (audio)
         audio.pause();
     audio = new Audio(url);
-    audio.preload = "auto";
+    audio.crossOrigin = "anonymous";
     const source = AudioCtx.createMediaElementSource(audio);
     source.connect(gainNode).connect(AudioCtx.destination);
     audio.play();
